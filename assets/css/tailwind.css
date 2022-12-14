@@ -5,3 +5,9 @@
 body{
     @apply bg-fuchsia-50;
 }
+
+.router-link-active{
+    @apply border-b-2 border-fuchsia-700;
+}
+
+

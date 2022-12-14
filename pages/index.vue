@@ -1,6 +1,6 @@
 <template> 
 <div class="container mx-auto mt-20 p-2">
-    <swiper :loop="true" :navigation="true" :modules="modules">
+    <swiper :loop="true" :navigation="true" class="w-full" :modules="[SwiperNavigation]">
         <swiper-slide>
           <picture>
               <source srcset="https://main-cdn.sbermegamarket.ru/upload/mnt/78c465ce-f714-4bf2-a586-626e6f41ff48.jpg" media="(min-width: 1024px)">
@@ -25,51 +25,54 @@
     </swiper>
 </div>
 
-
 <div class="container mx-auto mt-20 p-2">
-    <product_grid />
+    <ProductGrid title="Популярные категории"/>
 </div>
 
+<div class="container mx-auto mt-20 p-2 fadeInUpBig wow">
+    <picture>
+        <source srcset="https://main-cdn.sbermegamarket.ru/upload/mnt/edd30c34-1d8e-401d-bae7-c6e0584fc80d.jpg" media="(min-width: 1024px)">
+        <source srcset="https://main-cdn.sbermegamarket.ru/upload/mnt/68e71bef-4e05-4ea3-af5c-b3c1f8728347.jpg" media="(min-width: 320px)">
+        <img alt="" class="md:h-80 w-full rounded-xl">
+    </picture>
+</div>
 
+<div class="container mx-auto mt-20 p-2">
+    <Certificates />
+</div>
 
+<div class="container mx-auto mt-20 p-2">
+    <Partners title="Популярные категории"/>
+</div>
+
+<div class="container mx-auto mt-20 p-2">
+    <ProductGrid title="Разные категории"/>
+</div>
+
+<div class="container mx-auto mt-20 p-2">
+    <sliderProducts title="Спонсируемые товары"/>
+</div>
+
+<div class="container mx-auto mt-20 p-2">
+    <AboutDiscount />
+</div>
 </template>
 
-<script >
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation } from "swiper";
+<script setup>
 
-// Import Swiper styles
-import 'swiper/css';
-import "swiper/css/navigation";
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,    
-  },  
-  setup() {
-    return {
-      modules: [Navigation],
-    };
-  },
-};
 </script>
 
-<style >
-    .swiper {
-        width: 100%;
-    }
+<style> 
+    
+.swiper-button-next,.swiper-button-prev {
+color:rgb(162 28 175);
+}
 
-    .swiper-button-next,.swiper-button-prev {
-        color:rgb(162 28 175);
-    }
+.swiper-button-next:hover,.swiper-button-prev:hover {
+    color:rgb(232 121 249);
+}
 
-    .swiper-button-next:hover,.swiper-button-prev:hover {
-        color:rgb(232 121 249);
-    }
-
-    .swiper-pagination-bullet-active{
-        background: rgb(162 28 175);;
-    }
-
+.swiper-pagination-bullet-active{
+    background: rgb(162 28 175);;
+}
 </style>
