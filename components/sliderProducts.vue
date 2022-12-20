@@ -1,6 +1,6 @@
 <template>
     <p class="text-2xl fadeInLeft wow">{{title}}</p>
-    <swiper :navigation="true" class="m-auto w-full mt-6" :slides-per-view="'auto'" :space-between="32" >
+    <swiper :navigation="true" class="m-auto w-full mt-6" :slides-per-view="'auto'" :space-between="32" :modules="[SwiperNavigation]" >
         <swiper-slide v-for="product in products" class="swiper-slide flex flex-col products gap-2" >
             <NuxtLink :to="`/catalog/${product.id}`" class="p-2 bg-white rounded-3xl shadow-lg">
                 <img  :src="product.image" alt="" class="w-full object-contain aspect-square">

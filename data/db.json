@@ -1,0 +1,6 @@
+{
+    "products":[
+        {"title": "Кроссовки", "id":"1", "color":"white", "price":"200"},
+        {"title": "АКроссовки", "id":"2", "color":"black", "price":"100"}
+    ]
+}

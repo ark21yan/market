@@ -25,35 +25,36 @@
     <div class="container mx-auto p-2 mt-12">
         <div class="grid grid-cols-1 gap-32 lg:grid-cols-2 mt-8">
             <div class="flex flex-col items-center justify-center w-full h-auto">
-                <swiper  :spaceBetween="10" class="m-auto w-full mt-6 h-96 rounded-lg" :thumbs="{ swiper: thumbsSwiper }" :modules="[ SwiperThumbs]" >
-                     <swiper-slide class="swiper-slide flex flex-col products gap-2 bg-white " >
+                <swiper  :spaceBetween="10" class="m-auto w-full rounded-lg" :thumbs="{ swiper: thumbsSwiper }" :modules="[ SwiperThumbs]" >
+                     <swiper-slide class="swiper-slide flex flex-col products gap-2 bg-white p-2 " >
                         <img :src="product.image" class="w-full rounded-3xl object-contain h-96"/>
-                     </swiper-slide>
-                     <swiper-slide class="swiper-slide flex flex-col products gap-2 " >
+                     </swiper-slide>                     
+                     <swiper-slide class="swiper-slide flex flex-col products gap-2 bg-white p-2 " >
                         <img :src="product.image" class="w-full rounded-3xl object-contain h-96"/>
-                     </swiper-slide>
-                     <swiper-slide class="swiper-slide flex flex-col products gap-2" >
-                        <img :src="product.image" class="w-full rounded-3xl object-contain h-96" />
-                     </swiper-slide>
+                     </swiper-slide>                     
+                     <swiper-slide class="swiper-slide flex flex-col products gap-2 bg-white p-2 " >
+                        <img :src="product.image" class="w-full rounded-3xl object-contain h-96"/>
+                     </swiper-slide>                     
+                     <swiper-slide class="swiper-slide flex flex-col products gap-2 bg-white p-2 " >
+                        <img :src="product.image" class="w-full rounded-3xl object-contain h-96"/>
+                     </swiper-slide>                     
                      
                 </swiper>
 
-                <swiper @swiper="setThumbsSwiper" :spaceBetween="13" :rewind="true" :slidesPerView="3"  class="mt-8 w-full" :modules="[ SwiperThumbs]">
+                <swiper @swiper="setThumbsSwiper" :spaceBetween="13" :rewind="true" :slidesPerView="3" class="mt-8 w-full" :modules="[ SwiperThumbs]">
                      <swiper-slide class="swiper-slide flex flex-col products gap-2" >
-                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48"/>                        
+                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48 object-contain bg-white p-2"/>                        
                      </swiper-slide>
                      <swiper-slide class="swiper-slide flex flex-col products gap-2" >
-                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48"/>                        
+                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48 object-contain bg-white p-2"/>                        
                      </swiper-slide>
                      <swiper-slide class="swiper-slide flex flex-col products gap-2" >
-                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48"/>                        
+                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48 object-contain bg-white p-2"/>                        
                      </swiper-slide>
                      <swiper-slide class="swiper-slide flex flex-col products gap-2" >
-                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48"/>                        
+                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48 object-contain bg-white p-2"/>                        
                      </swiper-slide>
-                     <swiper-slide class="swiper-slide flex flex-col products gap-2" >
-                        <img :src="product.image" class="w-full rounded-3xl cursor-pointer h-48"/>                        
-                     </swiper-slide>
+                     
                 </swiper>                
             </div>            
             <div class="flex flex-col w-full shadow-lg rounded-3xl bg-white h-auto self-start relative">
@@ -96,14 +97,15 @@
 </template>
 
 <script setup>
-    const {id} = useRoute().params    
-    let thumbsSwiper = null;
+    const {id} = useRoute().params
     const uri = 'https://fakestoreapi.com/products/' + id;
+    const {data:product} = await useFetch(uri)
 
+    let thumbsSwiper = ref(null);
     const setThumbsSwiper = (swiper) => {
-      thumbsSwiper = swiper;
+      thumbsSwiper.value = swiper;
     }
 
-    const {data:product} = await useFetch(uri)
+    
 </script>
 
